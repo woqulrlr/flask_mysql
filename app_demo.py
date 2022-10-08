@@ -4,10 +4,6 @@ from flask import Flask, request
 
 import utils
 
-config = {
-    'table_name':'host_info'
-}
-
 app = Flask(__name__)
 
 @app.route('/read')
