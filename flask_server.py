@@ -3,7 +3,7 @@ import logging
 import logging.handlers
 
 from flask import Flask, request
-from flask_core import CORS
+from flask_cors import CORS
 
 import utils
 import flask_server_log
