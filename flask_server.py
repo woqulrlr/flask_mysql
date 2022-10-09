@@ -3,11 +3,13 @@ import logging
 import logging.handlers
 
 from flask import Flask, request
+from flask_core import CORS
 
 import utils
 import flask_server_log
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 
 flask_server_log.log_config()
 
