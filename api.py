@@ -1,6 +1,6 @@
 import requests
 
-# Read API JavaScript - Fetch
+# Read API JavaScript - Fetch: url/read/
 '''
 var requestOptions = {
   method: 'GET',
@@ -23,7 +23,7 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 
 
-# Create API JavaScript - Fetch
+# Create API JavaScript - Fetch: url/create/
 '''
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "text/plain");
@@ -55,7 +55,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 
 
-# Delete API JavaScript - Fetch
+# Delete API JavaScript - Fetch: url/delete/<host_id>/
 '''
 var raw = "";
 
@@ -81,7 +81,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 
 
-# Update API JavaScript - Fetch
+# Update API JavaScript - Fetch: url/update/<host_id>/
 '''
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "text/plain");
