@@ -12,7 +12,3 @@ def log_config():
     file_handler.setFormatter(log_my_formatter)
     # set logger
     logger.addHandler(file_handler)
-
-def log_requests(url, data):
-    logging.info(url)
-    logging.info(data)

@@ -1,3 +1,5 @@
+import logging
+
 import pymysql
 
 database_config = {
@@ -18,11 +20,9 @@ def _database_connection():
             charset = database_config['charset'],
             cursorclass= pymysql.cursors.DictCursor
         )
-        print("connection zabbix Database success")
         return connection, connection.cursor()
     except Exception as e:
-        print("connection zabbix Database fault")
-        print(e)
+        logging.exception(e)
         return 0
 
 def _database_close(cursor, connection):
@@ -31,10 +31,13 @@ def _database_close(cursor, connection):
     return 0
 
 def database_read(sql):
-    connection, cursor = _database_connection()
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    _database_close(connection, cursor)
+    try:
+        connection, cursor = _database_connection()
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        _database_close(connection, cursor)
+    except Exception as e:
+        logging.exception(e)
     return result
 
 def database_execute_commit(sql):
@@ -44,6 +47,7 @@ def database_execute_commit(sql):
         connection.commit()
     except Exception as e:
         connection.rollback()
+        logging.exception(e)
     _database_close(connection, cursor)
     return
 
