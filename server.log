@@ -1,0 +1,31 @@
+2022-10-10 16:11:00,671 - INFO      - _internal.py : 224 line - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9999
+ * Running on http://172.29.23.253:9999
+2022-10-10 16:11:00,671 - INFO      - _internal.py : 224 line - [33mPress CTRL+C to quit[0m
+2022-10-10 16:11:26,585 - ERROR     - flask_server.py : 37 line - Expecting ',' delimiter: line 4 column 5 (char 76)
+Traceback (most recent call last):
+  File "flask_server.py", line 30, in create_data
+    parms = json.loads(request.get_data(as_text=True))
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 4 column 5 (char 76)
+2022-10-10 16:11:26,586 - WARNING   - flask_server.py : 38 line - http://127.0.0.1:9999/create
+2022-10-10 16:11:26,586 - WARNING   - flask_server.py : 39 line - b'{\r\n    "host_id":"444444444",\r\n    "host_name":"2222_test_zabbix_host"\r\n    "area":"Macao",\r\n    "longitude":"22.15515",\r\n    "latitude":"113.521717",\r\n    "ip":"192.168.1.212",\r\n    "group_id":"3",\r\n    "host_type":"Linux"\r\n}'
+2022-10-10 16:11:26,586 - ERROR     - app.py   : 1741 line - Exception on /create [POST]
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/site-packages/flask/app.py", line 1842, in finalize_request
+    response = self.make_response(rv)
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/site-packages/flask/app.py", line 2134, in make_response
+    raise TypeError(
+TypeError: The view function for 'create_data' did not return a valid response. The function either returned None or ended without a return statement.
+2022-10-10 16:11:26,587 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [10/Oct/2022 16:11:26] "[35m[1mPOST /create HTTP/1.1[0m" 500 -
+2022-10-10 16:11:35,983 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [10/Oct/2022 16:11:35] "GET /read HTTP/1.1" 200 -

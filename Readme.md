@@ -1,4 +1,16 @@
-#创建表
+# 运行服务
+
+## flask运行
+```
+nohup python flask_server.py &
+```
+## gunicorn运行
+```
+gunicorn -w 4 flask_server:app
+```
+
+# mysql创建表
+```
 CREATE TABLE host_info  (
   id int NOT NULL AUTO_INCREMENT,
   host_id varchar(255) NOT NULL,
@@ -11,8 +23,9 @@ CREATE TABLE host_info  (
   host_type varchar(255) NULL,
   PRIMARY KEY (id) USING BTREE
 ) ENGINE = InnoDB;
-
-#插入表
+```
+# mysql插入表
+```
 insert into host_info  (
   host_id,
   host_name,
@@ -31,3 +44,4 @@ insert into host_info  (
     '192.168.1.6',
     '1',
     'win_server2007');
+```
