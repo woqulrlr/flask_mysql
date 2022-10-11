@@ -6,7 +6,7 @@ nohup python flask_server.py &
 ```
 ## gunicorn运行
 ```
-gunicorn -w 4 flask_server:app
+gunicorn -w 4 -b 0.0.0.0:9999 flask_server:app
 ```
 
 # mysql创建表
