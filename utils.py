@@ -49,5 +49,5 @@ def database_execute_commit(sql):
         connection.rollback()
         logging.exception(e)
     _database_close(connection, cursor)
-    return
+    return 0
 
