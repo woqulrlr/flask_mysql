@@ -6,25 +6,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 import utils
-import flask_server_log
+import flask_log
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-class flask_response:
-    def __init__(self, statue_code=200, data = []):
-        self.time = time()
-        self.data = data
-        self.statue_code = statue_code
-
-    def json(self):
-        return {
-            'time':self.time,
-            'data':self.data,
-            'statue_code':self.statue_code
-        }
-
-flask_server_log.log_config()
+flask_log.log_config()
 
 @app.route('/read')
 def read_data():
