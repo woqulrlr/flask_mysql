@@ -9,6 +9,30 @@ nohup python flask_server.py &
 gunicorn -w 4 -b 0.0.0.0:9999 flask_server:app
 ```
 
+## supervisor监控运行
+```
+/root/miniconda3/envs/flask_server/bin/supervisord -c supervisor.conf
+
+```
+
+# 管理supervisor
+```
+
+supervisord -c supervisor.conf                             通过配置文件启动supervisor
+supervisorctl -c supervisor.conf status                    察看supervisor的状态
+supervisorctl -c supervisor.conf reload                    重新载入 配置文件
+supervisorctl -c supervisor.conf start [all]|[appname]     启动指定/所有 supervisor管理的程序进程
+supervisorctl -c supervisor.conf stop [all]|[appname]      关闭指定/所有 supervisor管理的程序进程
+-----------------------------------------------------------
+supervisorctl
+
+reread读取配置
+update更新配置
+start/stop all 开启/关闭配置
+status 查看状态
+```
+
+
 # mysql创建表
 ```
 CREATE TABLE host_info  (
