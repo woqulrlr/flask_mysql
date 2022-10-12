@@ -22,6 +22,32 @@ response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 
+# Read API JavaScript - Fetch: url/read_one/
+# params: 444444444?group_id=3&ip=192.168.1.212&host_name=2222_test_zabbix_host
+'''
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("http://127.0.0.1:9999/read_one/444444444?group_id=3&ip=192.168.1.212&host_name=2222_test_zabbix_host", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+'''
+
+import requests
+
+url = "http://127.0.0.1:9999/read_one/444444444?group_id=3&ip=192.168.1.212&host_name=2222_test_zabbix_host"
+
+payload={}
+headers = {}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+
+
 
 # Create API JavaScript - Fetch: url/create/
 '''
