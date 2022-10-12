@@ -16,6 +16,10 @@ gunicorn -w 4 -b 0.0.0.0:9999 flask_server:app
 ```
 
 # 2. 调用API
+
+ptython,js调用api详细方式请看**flask_api.py**
+
+共提供CRUD，5个API。
 ```
 @app.route('/read/', methods=['GET'])
 
