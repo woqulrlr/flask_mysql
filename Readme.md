@@ -1,15 +1,15 @@
 # 1. 运行服务
 
-## 1.1 flask运行
+### 1.1 flask运行
 ```
 nohup python flask_server.py &
 ```
-## 1.2 gunicorn运行
+### 1.2 gunicorn运行
 ```
 gunicorn -w 4 -b 0.0.0.0:9999 flask_server:app
 ```
 
-## 1.3 supervisor监控运行
+### 1.3 supervisor监控运行
 ```
 /root/miniconda3/envs/flask_server/bin/supervisord -c supervisor.conf
 
@@ -52,7 +52,7 @@ status 查看状态
 
 # 4. mysql 表结构
 
-## 4.1 创建表
+### 4.1 创建表
 ```
 CREATE TABLE host_info  (
   id int NOT NULL AUTO_INCREMENT,
@@ -67,7 +67,7 @@ CREATE TABLE host_info  (
   PRIMARY KEY (id) USING BTREE
 ) ENGINE = InnoDB;
 ```
-# 4.2 插入表
+## 4.2 插入表
 ```
 insert into host_info  (
   host_id,
