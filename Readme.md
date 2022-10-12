@@ -1,21 +1,34 @@
-# 运行服务
+# 1. 运行服务
 
-## flask运行
+## 1.1 flask运行
 ```
 nohup python flask_server.py &
 ```
-## gunicorn运行
+## 1.2 gunicorn运行
 ```
 gunicorn -w 4 -b 0.0.0.0:9999 flask_server:app
 ```
 
-## supervisor监控运行
+## 1.3 supervisor监控运行
 ```
 /root/miniconda3/envs/flask_server/bin/supervisord -c supervisor.conf
 
 ```
 
-# 管理supervisor
+# 2. 调用API
+```
+@app.route('/read/', methods=['GET'])
+
+@app.route('/read_one/<host_id>/', methods=['GET'])
+
+@app.route('/create', methods=['POST'])
+
+@app.route('/delete/<host_id>/', methods=['POST'])
+
+@app.route('/update/<host_id>/', methods=['POST'])
+```
+
+# 3. 管理supervisor
 ```
 
 supervisord -c supervisor.conf                             通过配置文件启动supervisor
@@ -33,7 +46,9 @@ status 查看状态
 ```
 
 
-# mysql创建表
+# 4. mysql 表结构
+
+## 4.1 创建表
 ```
 CREATE TABLE host_info  (
   id int NOT NULL AUTO_INCREMENT,
@@ -48,7 +63,7 @@ CREATE TABLE host_info  (
   PRIMARY KEY (id) USING BTREE
 ) ENGINE = InnoDB;
 ```
-# mysql插入表
+# 4.2 插入表
 ```
 insert into host_info  (
   host_id,
