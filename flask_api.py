@@ -30,7 +30,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://127.0.0.1:9999/read_one/444444444?group_id=3&ip=192.168.1.212&host_name=2222_test_zabbix_host", requestOptions)
+fetch("http://127.0.0.1:9999/read_one/?ip=192.168.1.212", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -38,7 +38,7 @@ fetch("http://127.0.0.1:9999/read_one/444444444?group_id=3&ip=192.168.1.212&host
 
 import requests
 
-url = "http://127.0.0.1:9999/read_one/444444444?group_id=3&ip=192.168.1.212&host_name=2222_test_zabbix_host"
+url = "http://127.0.0.1:9999/read_one/?ip=192.168.1.212"
 
 payload={}
 headers = {}
@@ -46,6 +46,7 @@ headers = {}
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
+
 
 
 

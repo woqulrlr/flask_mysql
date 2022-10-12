@@ -25,8 +25,8 @@ def read_data():
         logging.warning(request.data)
         return jsonify({'data':[],'statue_code':400})
 
-@app.route('/read_one/<host_id>/')
-def read_one_data(host_id):
+@app.route('/read_one/')
+def read_one_data():
     try:
         params_dict = request.args.to_dict()
         params_list = ['{} = {!r}'.format(i, params_dict[i]) for i in params_dict]
@@ -40,7 +40,7 @@ def read_one_data(host_id):
         logging.warning(request.data)
         return jsonify({'data':[],'statue_code':400})
 
-@app.route('/create', methods=['POST'])
+@app.route('/create/', methods=['POST'])
 def create_data():
     try:
         params = json.loads(request.get_data(as_text=True))

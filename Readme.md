@@ -23,9 +23,9 @@ ptython,js调用api详细方式请看**flask_api.py**
 ```
 @app.route('/read/', methods=['GET'])
 
-@app.route('/read_one/<host_id>/', methods=['GET'])
+@app.route('/read_one/', methods=['GET'])
 
-@app.route('/create', methods=['POST'])
+@app.route('/create/', methods=['POST'])
 
 @app.route('/delete/<host_id>/', methods=['POST'])
 
