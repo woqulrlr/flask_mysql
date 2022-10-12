@@ -11,7 +11,7 @@ import flask_log
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-# flask_log.log_config()
+flask_log.log_config()
 
 @app.route('/read/')
 def read_data():
