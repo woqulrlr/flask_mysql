@@ -55,10 +55,11 @@ def create_data():
         logging.warning(request.data)
         return jsonify({'data':[],'statue_code':400})
 
-@app.route('/delete/<host_id>/', methods=['POST'])
-def delete_data(host_id):
+@app.route('/delete/', methods=['POST'])
+def delete_data():
     try:
-        sql = 'delete from {} where host_id = {};'.format(utils.database_config['table'], host_id)
+        params = json.loads(request.get_data(as_text=True))
+        sql = 'delete from {} where host_id = {};'.format(utils.database_config['table'], params['host_id'])
         utils.database_execute_commit(sql)
         return jsonify({'data':[],'statue_code':200})
     except Exception as e:
@@ -67,12 +68,12 @@ def delete_data(host_id):
         logging.warning(request.data)
         return jsonify({'data':[],'statue_code':400})
 
-@app.route('/update/<host_id>/', methods=['POST'])
-def update_data(host_id):
+@app.route('/update/', methods=['POST'])
+def update_data():
     try:
         params = json.loads(request.get_data(as_text=True))
         updata_str = ','.join([i + "='" + params[i] + "'" for i in params])
-        sql = 'update {} set {} where host_id = {};'.format(utils.database_config['table'], updata_str, host_id)
+        sql = 'update {} set {} where host_id = {};'.format(utils.database_config['table'], updata_str, params['host_id'])
         utils.database_execute_commit(sql)
         return jsonify({'data':[],'statue_code':200})
     except Exception as e:

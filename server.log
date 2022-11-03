@@ -1,0 +1,71 @@
+2022-11-03 16:08:58,234 - INFO      - _internal.py : 224 line - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9999
+ * Running on http://172.25.59.200:9999
+2022-11-03 16:08:58,234 - INFO      - _internal.py : 224 line - [33mPress CTRL+C to quit[0m
+2022-11-03 16:09:01,865 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:09:01] "[32mGET /read HTTP/1.1[0m" 308 -
+2022-11-03 16:09:01,878 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:09:01] "GET /read/ HTTP/1.1" 200 -
+2022-11-03 16:09:33,485 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:09:33] "[32mPOST /create HTTP/1.1[0m" 308 -
+2022-11-03 16:11:55,940 - INFO      - _internal.py : 224 line - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9999
+ * Running on http://172.25.59.200:9999
+2022-11-03 16:11:55,940 - INFO      - _internal.py : 224 line - [33mPress CTRL+C to quit[0m
+2022-11-03 16:11:59,651 - INFO      - _internal.py : 224 line - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9999
+ * Running on http://172.25.59.200:9999
+2022-11-03 16:11:59,651 - INFO      - _internal.py : 224 line - [33mPress CTRL+C to quit[0m
+2022-11-03 16:12:02,935 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:02] "[32mGET /read HTTP/1.1[0m" 308 -
+2022-11-03 16:12:02,940 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:02] "GET /read/ HTTP/1.1" 200 -
+2022-11-03 16:12:06,336 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:06] "GET /read_one/?ip=192.168.1.212 HTTP/1.1" 200 -
+2022-11-03 16:12:12,844 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:12] "[32mPOST /create HTTP/1.1[0m" 308 -
+2022-11-03 16:12:12,852 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:12] "POST /create/ HTTP/1.1" 200 -
+2022-11-03 16:12:18,867 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:18] "[32mGET /read HTTP/1.1[0m" 308 -
+2022-11-03 16:12:18,873 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:18] "GET /read/ HTTP/1.1" 200 -
+2022-11-03 16:12:34,832 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:34] "[33mPOST /update/444444444 HTTP/1.1[0m" 404 -
+2022-11-03 16:12:42,843 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:42] "[32mPOST /update HTTP/1.1[0m" 308 -
+2022-11-03 16:12:42,849 - ERROR     - flask_server.py : 80 line - 'host_id'
+Traceback (most recent call last):
+  File "/home/lirui/flask_template/flask_server.py", line 76, in update_data
+    sql = 'update {} set {} where host_id = {};'.format(utils.database_config['table'], updata_str, params['host_id'])
+KeyError: 'host_id'
+2022-11-03 16:12:42,850 - WARNING   - flask_server.py : 81 line - http://127.0.0.1:9999/update/
+2022-11-03 16:12:42,850 - WARNING   - flask_server.py : 82 line - b'{\r\n    "area":"Macao_must"\r\n}'
+2022-11-03 16:12:42,850 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:12:42] "POST /update/ HTTP/1.1" 200 -
+2022-11-03 16:13:08,647 - ERROR     - flask_server.py : 80 line - Expecting ',' delimiter: line 2 column 24 (char 26)
+Traceback (most recent call last):
+  File "/home/lirui/flask_template/flask_server.py", line 74, in update_data
+    params = json.loads(request.get_data(as_text=True))
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 2 column 24 (char 26)
+2022-11-03 16:13:08,656 - WARNING   - flask_server.py : 81 line - http://127.0.0.1:9999/update/
+2022-11-03 16:13:08,656 - WARNING   - flask_server.py : 82 line - b'{\r\n    "area":"Macao_must"\xef\xbc\x8c\r\n    "host_id":"444444444"\r\n}'
+2022-11-03 16:13:08,657 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:13:08] "POST /update/ HTTP/1.1" 200 -
+2022-11-03 16:13:32,017 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:13:32] "POST /update/ HTTP/1.1" 200 -
+2022-11-03 16:13:36,578 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:13:36] "[32mGET /read HTTP/1.1[0m" 308 -
+2022-11-03 16:13:36,583 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:13:36] "GET /read/ HTTP/1.1" 200 -
+2022-11-03 16:13:48,084 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:13:48] "[32mPOST /delete HTTP/1.1[0m" 308 -
+2022-11-03 16:13:48,088 - ERROR     - flask_server.py : 66 line - Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/lirui/flask_template/flask_server.py", line 61, in delete_data
+    params = json.loads(request.get_data(as_text=True))
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/root/miniconda3/envs/flask_server/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2022-11-03 16:13:48,088 - WARNING   - flask_server.py : 67 line - http://127.0.0.1:9999/delete/
+2022-11-03 16:13:48,088 - WARNING   - flask_server.py : 68 line - b''
+2022-11-03 16:13:48,089 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:13:48] "POST /delete/ HTTP/1.1" 200 -
+2022-11-03 16:14:06,229 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:14:06] "[32mPOST /delete HTTP/1.1[0m" 308 -
+2022-11-03 16:14:06,236 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:14:06] "POST /delete/ HTTP/1.1" 200 -
+2022-11-03 16:14:09,442 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:14:09] "[32mGET /read HTTP/1.1[0m" 308 -
+2022-11-03 16:14:09,448 - INFO      - _internal.py : 224 line - 127.0.0.1 - - [03/Nov/2022 16:14:09] "GET /read/ HTTP/1.1" 200 -

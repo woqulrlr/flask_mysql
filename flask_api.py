@@ -82,38 +82,12 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 
 
-# Delete API JavaScript - Fetch: url/delete/<host_id>/
-'''
-var raw = "";
-
-var requestOptions = {
-  method: 'POST',
-  body: raw,
-  redirect: 'follow'
-};
-
-fetch("http://127.0.0.1:9999/delete/222222222", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-'''
-
-url = "http://127.0.0.1:9999/delete/222222222"
-
-payload = ""
-headers = {}
-
-response = requests.request("POST", url, headers=headers, data=payload)
-
-print(response.text)
-
-
-# Update API JavaScript - Fetch: url/update/<host_id>/
+# Delete API JavaScript - Fetch: url/delete/
 '''
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "text/plain");
 
-var raw = "{\r\n    \"area\":\"Macao_must\"\r\n}";
+var raw = "{\r\n    \"host_id\":\"444444444\"\r\n}";
 
 var requestOptions = {
   method: 'POST',
@@ -122,15 +96,52 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://127.0.0.1:9999/update/222222222", requestOptions)
+fetch("http://127.0.0.1:9999/delete", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 '''
 
-url = "http://127.0.0.1:9999/update/222222222"
+import requests
 
-payload = "{\r\n    \"area\":\"Macao_must\"\r\n}"
+url = "http://127.0.0.1:9999/delete"
+
+payload = "{\r\n    \"host_id\":\"444444444\"\r\n}"
+headers = {
+  'Content-Type': 'text/plain'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+
+
+
+# Update API JavaScript - Fetch: url/update/
+'''
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "text/plain");
+
+var raw = "{\r\n    \"area\":\"Macao_must\",\r\n    \"host_id\":\"444444444\"\r\n}";
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://127.0.0.1:9999/update/", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+'''
+
+import requests
+
+url = "http://127.0.0.1:9999/update/"
+
+payload = "{\r\n    \"area\":\"Macao_must\",\r\n    \"host_id\":\"444444444\"\r\n}"
 headers = {
   'Content-Type': 'text/plain'
 }
